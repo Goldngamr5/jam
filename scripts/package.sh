@@ -64,7 +64,7 @@ function build::jam(){
   pushd "${ROOT_DIR}" > /dev/null || return
     for os in darwin linux; do
       util::print::info "Building jam on ${os}"
-      GOOS="${os}" GOARCH="aarch64" go build -ldflags "-X github.com/paketo-buildpacks/jam/commands.jamVersion=${version}" -o "${ARTIFACTS_DIR}/jam-${os}"  main.go
+      GOOS="${os}" GOARCH="arm64" go build -ldflags "-X github.com/paketo-buildpacks/jam/commands.jamVersion=${version}" -o "${ARTIFACTS_DIR}/jam-${os}"  main.go
       chmod +x "${ARTIFACTS_DIR}/jam-${os}"
     done
     util::print::info "Building jam on windows"
